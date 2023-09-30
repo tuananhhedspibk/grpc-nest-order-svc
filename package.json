@@ -17,7 +17,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "proto:install": "npm i git+https://github.com/tuananhhedspibk/grpc-nest-proto.git",
+    "proto:order": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./node_modules/grpc-nest-proto --ts_proto_out=src/order/ node_modules/grpc-nest-proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.9.4",
@@ -29,7 +31,9 @@
     "@nestjs/typeorm": "^10.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "grpc-nest-proto": "github:tuananhhedspibk/grpc-nest-proto",
     "long": "^5.2.3",
+    "mysql": "^2.18.1",
     "pg": "^8.11.3",
     "protobufjs": "^7.2.5",
     "reflect-metadata": "^0.1.13",
@@ -56,6 +60,7 @@
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
+    "ts-proto": "^1.158.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.3"
   },

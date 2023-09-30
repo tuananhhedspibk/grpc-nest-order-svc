@@ -9,8 +9,8 @@ export class Order extends BaseEntity {
   public price!: number;
 
   @Column({ type: 'integer' })
-  public productId!: number;
+  public product_id!: number;
 
   @Column({ type: 'integer' })
-  public userId!: number;
+  public user_id!: number;
 }

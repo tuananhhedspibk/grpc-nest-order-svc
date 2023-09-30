@@ -30,6 +30,7 @@ export class OrderService implements OnModuleInit {
   public async createOrder(
     data: CreateOrderRequest,
   ): Promise<CreateOrderResponse> {
+    console.log('data', data);
     const product: FindOneResponse = await firstValueFrom(
       this.productSvc.findOne({ id: data.productId }),
     );
@@ -47,8 +48,8 @@ export class OrderService implements OnModuleInit {
     const order: Order = new Order();
 
     order.price = product.data.price;
-    order.productId = product.data.id;
-    order.userId = data.userId;
+    order.product_id = product.data.id;
+    order.user_id = data.userId;
 
     await this.repository.save(order);
 
